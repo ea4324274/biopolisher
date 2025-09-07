@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: bio-polisher
+    env: node
+    plan: free
+    buildCommand: "npm install"
+    startCommand: "npm start"
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: ALLOWED_ORIGINS
+        value: "https://revana.io,https://www.revana.io"
+    healthCheckPath: /healthz
